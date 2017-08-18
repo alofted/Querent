@@ -1,2 +1,110 @@
-!function(e,r){"object"==typeof exports&&"undefined"!=typeof module?module.exports=r():"function"==typeof define&&define.amd?define(r):e.Querent=r()}(this,function(){"use strict";var e=function(){function e(e,r){var t=[],n=!0,u=!1,i=void 0;try{for(var c,o=e[Symbol.iterator]();!(n=(c=o.next()).done)&&(t.push(c.value),!r||t.length!==r);n=!0);}catch(e){u=!0,i=e}finally{try{!n&&o.return&&o.return()}finally{if(u)throw i}}return t}return function(r,t){if(Array.isArray(r))return r;if(Symbol.iterator in Object(r))return e(r,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();Object.entries=function(e){return Object.keys(e).reduce(function(r,t){return r.push([t,e[t]])&&r},[])};var r=function(e,r){return t(r,function(r,t){return n(e[r],t)})},t=function(r,t){return Object.entries(r).every(function(r){var n=e(r,2),u=n[0],i=n[1];return t(u,i)})},n=function(e,r){return Array.isArray(r)?r.includes(e):r instanceof Object?t(r,function(r,t){return u(e,r,t)}):r===e},u=function(e,r,t){switch(r){case"!":return!n(e,t);case"<":return e<t;case"<=":return e<=t;case">":return e>t;case">=":return e>=t;default:return n(e[r],t)}};return{query:function(e,t){return e.filter(function(e){return r(e,t)})},matches:r,evaluate:n,predicate:u}});
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.Querent = factory());
+}(this, (function () { 'use strict';
+
+var slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+Object.entries = function (x) {
+  return Object.keys(x).reduce(function (y, z) {
+    return y.push([z, x[z]]) && y;
+  }, []);
+};
+
+var query = function query(objects, _query) {
+  return objects.filter(function (object) {
+    return matches(object, _query);
+  });
+};
+
+var matches = function matches(object, query) {
+  return every(query, function (key, value) {
+    return evaluate(object[key], value);
+  });
+};
+
+var every = function every(object, iteratee) {
+  return Object.entries(object).every(function (_ref) {
+    var _ref2 = slicedToArray(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    return iteratee(key, value);
+  });
+};
+
+var evaluate = function evaluate(prop, value) {
+  if (Array.isArray(value)) return value.includes(prop);
+
+  if (value instanceof Object) return every(value, function (key, value) {
+    return predicate(prop, key, value);
+  });
+
+  return value === prop;
+};
+
+var predicate = function predicate(prop, key, value) {
+  switch (key) {
+    case '!':
+      return !evaluate(prop, value);
+    case '<':
+      return prop < value;
+    case '<=':
+      return prop <= value;
+    case '>':
+      return prop > value;
+    case '>=':
+      return prop >= value;
+    default:
+      return evaluate(prop[key], value);
+  }
+};
+
+var Querent = {
+  query: query,
+  matches: matches,
+  evaluate: evaluate,
+  predicate: predicate
+};
+
+return Querent;
+
+})));
 //# sourceMappingURL=Querent.js.map
