@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve'
+import uglify from 'rollup-plugin-uglify'
 import babel from 'rollup-plugin-babel'
 
 export default {
@@ -12,9 +13,10 @@ export default {
       exclude: 'node_modules/**',
       plugins: ["external-helpers"],
       presets: [
-        ["latest", { es2015: { modules: false } }]
+        ["latest", { es2015: { modules: false } }],
       ],
     }),
+    uglify(),
   ],
   format: 'umd',
   sourceMap: true,
