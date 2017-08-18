@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.Querent = {})));
-}(this, (function (exports) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.Querent = factory());
+}(this, (function () { 'use strict';
 
 var slicedToArray = function () {
   function sliceIterator(arr, i) {
@@ -97,10 +97,14 @@ var predicate = function predicate(prop, key, value) {
   }
 };
 
-exports.query = query;
-exports.matches = matches;
+var Querent = {
+  query: query,
+  matches: matches,
+  evaluate: evaluate,
+  predicate: predicate
+};
 
-Object.defineProperty(exports, '__esModule', { value: true });
+return Querent;
 
 })));
 //# sourceMappingURL=Querent.js.map

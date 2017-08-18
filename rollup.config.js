@@ -8,7 +8,12 @@ export default {
   plugins: [
     resolve(),
     babel({
+      babelrc: false,
       exclude: 'node_modules/**',
+      plugins: ["external-helpers"],
+      presets: [
+        ["latest", { es2015: { modules: false } }]
+      ],
     }),
   ],
   format: 'umd',

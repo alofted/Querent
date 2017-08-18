@@ -33,7 +33,11 @@ const predicate = (prop, key, value) => {
   }
 }
 
-module.exports = {
+const Querent = {
   query,
   matches,
+  evaluate,
+  predicate,
 }
+
+export default Querent

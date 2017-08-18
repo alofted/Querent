@@ -1,5 +1,5 @@
 import test from 'ava'
-import * as Querent from './Querent'
+import Querent from './Querent'
 
 test('query', t => {
   const JUMP = { id: 1, verb: 'jump', active: true, nested: { value: 1 } }
