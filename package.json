@@ -24,8 +24,5 @@
     "rollup": "^0.47.6",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0"
-  },
-  "dependencies": {
-    "lodash": "^4.17.4"
   }
 }
