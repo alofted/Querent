@@ -36,6 +36,7 @@ const predicate = (prop, key, value) => {
 const Querent = {
   query,
   matches,
+  every,
   evaluate,
   predicate,
 }

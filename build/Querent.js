@@ -100,6 +100,7 @@ var predicate = function predicate(prop, key, value) {
 var Querent = {
   query: query,
   matches: matches,
+  every: every,
   evaluate: evaluate,
   predicate: predicate
 };
