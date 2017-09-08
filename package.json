@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alofted/Querent.git#master"
+    "url": "git+https://github.com/alofted/Querent.git"
   },
   "bugs": {
     "url": "https://github.com/alofted/Querent/issues"
