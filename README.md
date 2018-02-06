@@ -4,17 +4,17 @@ Syntax is based of [SailsJS Waterline Query Language](http://sailsjs.com/documen
 
 ## How it works
 
-Run `Querent.query(collection, filters)` where `collection` is an array of objects and `filters` is an object like `{ name: 'Simpson' }`.
+Run `Querent.query(collection, filters)` where `collection` is an array of objects and `filters` is an object like `{ surname: 'Simpson' }`.
 
 The property's key is the attribute that will be looked for in the object, and the value is the filter for the object to be returned.
 
 ### Examples
 
-You can add multiple attributes to narrow down your selection. `{ name: 'Simpson', age: 10 }` will return the elements that match both conditions.
+You can add multiple attributes to narrow down your selection. `{ surname: 'Simpson', age: 10 }` will return the elements that match both conditions.
 
-Or you can widen it by allowing for multiple values. `{ name: ['Simpson', 'Van Houten'] }` will return the elements that match either value.
+Or you can widen it by allowing for multiple values. `{ surname: ['Simpson', 'Van Houten'] }` will return the elements that match either value.
 
-Another available structure is to negate the predicate by writing. `{ name: { '!': 'Prince' } }` will return the elements whose name is not Prince.
+Another available structure is to negate the predicate by writing. `{ surname: { '!': 'Wiggum' } }` will return the elements whose name is not Wiggum.
 
 You can also filter using nested properties. `{ grade: { math: { '!': ['A', 'B'] } } }` will return the elements whose grade on math not A or B.
 
