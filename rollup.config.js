@@ -4,40 +4,44 @@ import babel from 'rollup-plugin-babel'
 
 export default [
   {
-    moduleName: 'Querent',
-    entry: 'src/Querent.js',
-    dest: 'build/Querent.js',
+    input: 'src/Querent.js',
+    output: {
+      file: 'build/Querent.js',
+      format: 'umd',
+      name: 'Querent',
+      sourcemap: true
+    },
     plugins: [
       resolve(),
       babel({
         babelrc: false,
         exclude: 'node_modules/**',
-        plugins: ["external-helpers"],
+        plugins: ['external-helpers'],
         presets: [
-          ["latest", { es2015: { modules: false } }],
+          ['latest', { es2015: { modules: false } }],
         ],
       }),
     ],
-    format: 'umd',
-    sourceMap: true,
   },
   {
-    moduleName: 'Querent',
-    entry: 'src/Querent.js',
-    dest: 'build/Querent.min.js',
+    input: 'src/Querent.js',
+    output: {
+      file: 'build/Querent.min.js',
+      format: 'umd',
+      name: 'Querent',
+      sourcemap: true
+    },
     plugins: [
       resolve(),
       babel({
         babelrc: false,
         exclude: 'node_modules/**',
-        plugins: ["external-helpers"],
+        plugins: ['external-helpers'],
         presets: [
-          ["latest", { es2015: { modules: false } }],
+          ['latest', { es2015: { modules: false } }],
         ],
       }),
       uglify(),
     ],
-    format: 'umd',
-    sourceMap: true,
   },
 ]
