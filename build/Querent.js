@@ -42,14 +42,15 @@ var slicedToArray = function () {
   };
 }();
 
+// Define Object.entries which is part of the ES2017 spec
 Object.entries = function (x) {
   return Object.keys(x).reduce(function (y, z) {
     return y.push([z, x[z]]) && y;
   }, []);
 };
 
-var query = function query(objects, _query) {
-  return objects.filter(function (object) {
+var query = function query(collection, _query) {
+  return collection.filter(function (object) {
     return matches(object, _query);
   });
 };
