@@ -2,7 +2,11 @@
 
 Syntax is based of [SailsJS Waterline Query Language](http://sailsjs.com/documentation/concepts/models-and-orm/query-language).
 
-## How it works
+## Installation
+
+Just run `npm install querent` or `yarn add querent`.
+
+## Usage
 
 Run `Querent.query(collection, filters)` where `collection` is an array of objects and `filters` is an object like `{ surname: 'Simpson' }`.
 
