@@ -1,6 +1,6 @@
 {
   "name": "querent",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily query your js collections. ",
   "main": "./build/Querent.js",
   "scripts": {
