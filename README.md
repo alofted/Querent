@@ -16,7 +16,7 @@ Or you can widen it by allowing for multiple values. `{ surname: ['Simpson', 'Va
 
 Another available structure is to negate the predicate by writing. `{ surname: { '!': 'Wiggum' } }` will return the elements whose name is not Wiggum.
 
-You can also filter using nested properties. `{ grade: { math: { '!': ['A', 'B'] } } }` will return the elements whose grade on math not A or B.
+You can also filter using nested properties. `{ grades: { math: { '!': ['A', 'B'] } } }` will return the elements whose grade on math not A or B.
 
 ### Criteria Modifiers
 
