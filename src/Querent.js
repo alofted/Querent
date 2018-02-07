@@ -1,9 +1,10 @@
+// Define Object.entries which is part of the ES2017 spec
 Object.entries = x =>
   Object.keys(x).reduce((y, z) =>
     y.push([z, x[z]]) && y, [])
 
-const query = (objects, query) =>
-  objects.filter((object) => matches(object, query))
+const query = (collection, query) =>
+  collection.filter(object => matches(object, query))
 
 const matches = (object, query) =>
   every(query, (key, value) =>
